@@ -6,4 +6,5 @@ requires-python = ">=3.10"
 dependencies = [
     "pygame>=2.6.1",
     "requests>=2.32.5",
+    "rival>=0.0.1",
 ]
