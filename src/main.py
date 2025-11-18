@@ -1,10 +1,9 @@
 import pygame, random
 from historia.generador import generar_historia
 from historia.pergamino import mostrar_texto
-from minijuegos.tres_en_raya import jugar_tres_en_raya
-from minijuegos.minigolf import jugar_minigolf
-from minijuegos.memoria import jugar_memoria
-from rival.rival import get_dificultad, registrar_derrota
+from rival.rival import  registrar_derrota
+from src.minijuegos.memory.interface.interface import jugar_memoria
+from src.minijuegos.tres_en_raya.interface.interface_tres import jugar_tres_en_raya
 
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -16,7 +15,7 @@ historia = generar_historia("venganza", "Luna", "Kai")
 mostrar_texto(screen, historia, font)
 
 # Tres minijuegos distintos
-minijuegos = [jugar_tres_en_raya, jugar_minigolf, jugar_memoria]
+minijuegos = [jugar_tres_en_raya,  jugar_memoria]
 random.shuffle(minijuegos)
 derrotas = 0
 

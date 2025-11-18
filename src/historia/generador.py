@@ -1,12 +1,12 @@
 import os
 import requests
 
-API_KEY = os.getenv("NAPKIN_API_KEY")  # define esta variable en tu sistema
+API_KEY = os.getenv("NAPKIN_API_KEY")
 API_URL = "https://api.napkin.ai/v1/generate"
 
-def generar_historia(palabra, jugador, rival):
+def generar_historia(palabra1, palabra2,palabra3, jugador, rival):
     prompt = f"""
-    Crea una historia breve y épica basada en la palabra '{palabra}'.
+    Crea una historia breve y épica basada en las palabras '{palabra1}','{palabra2}','{palabra3}',.
     El protagonista es {jugador} y su rival es {rival}.
     Termina con un conflicto que pueda resolverse en un minijuego.
     """
