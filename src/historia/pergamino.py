@@ -16,7 +16,7 @@ def mostrar_texto(screen, texto, fuente, color=(0, 0, 0), velocidad=0.02):
         for linea in lineas:
             line_render = fuente.render(linea, True, color)
             screen.blit(line_render, (50, y))
-            y += 30
+            y += 20
         screen.blit(render, (50, y))
         pygame.display.flip()
         time.sleep(velocidad)

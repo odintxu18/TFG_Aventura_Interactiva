@@ -1,5 +1,5 @@
-from src.domain.entities.tablero import Tablero
-from src.domain.entities.jugador import Jugador
+from src.minijuegos.tres_en_raya.domain.board import Tablero
+
 
 class PlayTurnUseCase:
     def __init__(self, tablero: Tablero, ia_service):

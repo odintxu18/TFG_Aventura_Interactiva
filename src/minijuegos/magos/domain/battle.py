@@ -1,4 +1,5 @@
-from src.mago.domain.hechizo import Hechizo
+from src.minijuegos.magos.domain.spell import Hechizo
+
 
 class Batalla:
     def __init__(self, mago1, mago2):

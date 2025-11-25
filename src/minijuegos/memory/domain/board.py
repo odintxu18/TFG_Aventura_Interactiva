@@ -1,5 +1,7 @@
 import random
-from src.domain.entities.carta import Carta
+
+from src.minijuegos.memory.domain.card import Carta
+
 
 class TableroMemoria:
     def __init__(self, filas=2, columnas=4):
