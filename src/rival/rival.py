@@ -24,3 +24,30 @@ def registrar_derrota():
 def decision_ia(prob_mejor_jugada=0.5):
     """La IA toma decisiones con una probabilidad de hacer el movimiento correcto."""
     return random.random() < prob_mejor_jugada
+
+class AirHockeyAI:
+    """IA adaptativa basada en tu sistema de derrotas."""
+
+    def __init__(self):
+        dificultad = get_dificultad()
+        self.inteligencia = 0.3 + 0.12 * dificultad  # igual que tu tres en raya
+
+    def mover(self, paddle, puck):
+        """
+        Devuelve el movimiento recomendado:
+        -1 → mover a la izquierda
+         1 → mover a la derecha
+         0 → no moverse
+        """
+
+        # Decide si la IA hace lo óptimo o no
+        if not decision_ia(self.inteligencia):
+            return random.choice([-1, 0, 1])
+
+        # Movimiento inteligente: seguir la posición del puck
+        if puck.x < paddle.x:
+            return -1
+        elif puck.x > paddle.x:
+            return 1
+        return 0
+

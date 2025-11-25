@@ -4,6 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.10"
 dependencies = [
+    "generativeai>=0.0.1",
+    "google>=3.0.0",
+    "google-genai>=1.51.0",
+    "google-generativeai>=0.8.5",
+    "movement>=0.0.23",
     "pygame>=2.6.1",
     "requests>=2.32.5",
     "rival>=0.0.1",
