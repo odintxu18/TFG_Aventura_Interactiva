@@ -1,22 +1,49 @@
 import pygame
-import time
 
-def mostrar_texto(screen, texto, fuente, color=(0, 0, 0), velocidad=0.02):
-    """Despliega texto lentamente como si fuera un pergamino."""
-    lineas = []
-    palabra_actual = ""
-    for char in texto:
-        palabra_actual += char
-        if char == "\n":
-            lineas.append(palabra_actual)
-            palabra_actual = ""
-        render = fuente.render(palabra_actual, True, color)
-        screen.fill((230, 210, 180))  # color pergamino
-        y = 50
-        for linea in lineas:
-            line_render = fuente.render(linea, True, color)
-            screen.blit(line_render, (50, y))
-            y += 20
-        screen.blit(render, (50, y))
+def stream_text(
+    screen,
+    texto,
+    font,
+    color=(0, 0, 0),
+    pos=(50, 50),
+    line_height=24,
+    char_speed=30  # caracteres por segundo
+):
+    """
+    Muestra texto con animación tipo pergamino, sin bloquear el loop.
+    Se llama dentro del bucle principal.
+    """
+
+    clock = pygame.time.Clock()
+    rendered_lines = [""]  # comienza con la primera línea vacía
+
+    idx = 0
+
+    while idx < len(texto):
+        dt = clock.tick(60) / 1000  # delta time en segundos
+        chars_to_add = max(1, int(char_speed * dt))
+
+        for _ in range(chars_to_add):
+            if idx >= len(texto):
+                break
+
+            char = texto[idx]
+            idx += 1
+
+            if char == "\n":
+                rendered_lines.append("")
+            else:
+                rendered_lines[-1] += char
+
+        # Dibujado
+        screen.fill((230, 210, 180))  # pergamino suave
+
+        y = pos[1]
+        for linea in rendered_lines:
+            rendered = font.render(linea, True, color)
+            screen.blit(rendered, (pos[0], y))
+            y += line_height
+
         pygame.display.flip()
-        time.sleep(velocidad)
+
+    return rendered_lines
