@@ -11,7 +11,7 @@ class JuegoTanques:
         self.ganador = None
 
         # Obstáculos aleatorios
-        self.obstaculos = [Obstaculo.generar_aleatorio(width, height) for _ in range(3)]
+        self.obstaculos = [Obstaculo.generar_aleatorio(width, height) for _ in range(5)]
 
     def mover_tanque(self, tanque: Tanque, dx: int, dy: int):
         tanque.mover(dx, dy, self.width, self.height, self.obstaculos)

@@ -16,8 +16,8 @@ class AirHockeyUseCase:
 
     def update(self):
         # Movimiento IA
-        move = self.ai.mover(self.game.p2, self.game.puck)
-        self.game.p2.move(move)
+        move_dir = self.ai.mover(self.game.p2, self.game.puck)
+        self.game.p2.move(move_dir)
 
         # Actualizar físicas
         self.game.update()
